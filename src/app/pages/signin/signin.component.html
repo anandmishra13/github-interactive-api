@@ -1,0 +1,71 @@
+<div class="login-container">
+  <div class="login">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">SIGN IN PLEASE</h5>
+      </div>
+      <div class="card-body">
+        <form #formData="ngForm" (submit)="loginUser()" class="form">
+          <div class="row g-3 align-items-center">
+            <div class="col-3">
+              <label for="inputPassword6" class="col-form-label">Email</label>
+            </div>
+            <div class="col-9">
+              <input
+                type="email"
+                [(ngModel)]="userData.email"
+                name="email"
+                #email="ngModel"
+                placeholder="Enter Email"
+                class="card-input"
+                email
+                required
+              />
+              <div
+                class="md-errors-spacer mt-1"
+                [hidden]="email.valid || email.untouched"
+              >
+                @if(email.errors && email.errors['required']) {
+                <div class="text-danger">Email is required</div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col-3">
+              <label for="inputPassword6" class="col-form-label"
+                >Password</label
+              >
+            </div>
+            <div class="col-9">
+              <input
+                type="password"
+                class="card-input"
+                [(ngModel)]="userData.password"
+                name="password"
+                placeholder="Enter Password"
+                required
+                #password="ngModel"
+              />
+              <div
+                class="md-errors-spacer mt-1"
+                [hidden]="password.valid || password.untouched"
+              >
+                @if(password.errors && password.errors['required']) {
+                    <div class="text-danger">Password is required</div>
+                } 
+              </div>
+            </div>
+          </div>
+          <button 
+            [disabled]="password.errors && password.errors['required'] ||
+             (email.errors && email.errors['required'])" 
+            type="submit" 
+            class="submit-btn btn btn-primary mt-4">
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

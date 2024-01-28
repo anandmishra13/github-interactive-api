@@ -1,0 +1,34 @@
+.search{
+    .home {
+        &-container {
+            width: 100%;
+            height: 80vh;
+        }
+        &-search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        .search-input {
+            width: 22rem;
+        }
+    }
+    .github-user{
+        display: flex;
+        justify-content: end;
+    }
+    
+    @media (max-width: 766px) {
+        & {
+            padding: 0 7%;
+        }
+        .serach-container {
+            justify-content: center;
+        }
+        .github-user{
+            justify-content: center;
+        }
+    }
+    
+}

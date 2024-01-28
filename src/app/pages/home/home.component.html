@@ -1,0 +1,54 @@
+<div class="search">
+  <div class="container-fluid home-container mt-5">
+    <div class="home row">
+      <form
+        class="form-inline home-search-container"
+        #search="ngForm"
+        (submit)="searchGithubUser()"
+      >
+        <div class="row g-3 serach-container align-items-center">
+          <div class="col-auto">
+            <label for="search" class="col-form-label">User Name</label>
+          </div>
+          <div class="col-auto">
+            <input
+              id="search"
+              type="text"
+              class="form-control search-input"
+              [(ngModel)]="username"
+              name="search"
+            />
+          </div>
+          <div class="col-auto">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="searchGithubUser()"
+            >
+              Find User
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    @if (loadContent) {
+    <div class="row">
+      <div class="col-md-5 col-12 github-user mb-5">
+        @if(gitHubUser.name) {
+        <app-user-card [gitHubUser]="gitHubUser"></app-user-card>
+        }
+      </div>
+      <div class="col-md-6 col-12">
+        @if(gitHubRepo.length > 0) {
+        <app-repos [gitHubRepo]="gitHubRepo"></app-repos>
+        }
+      </div>
+    </div>
+    } @else if (gitHubUser.name === null || noUserFound) {
+    <div class="no-user-found">
+      <img src="../../../assets/images/no-user.png" alt="no_user_found" />
+      <p>No User found</p>
+    </div>
+    }
+  </div>
+</div>

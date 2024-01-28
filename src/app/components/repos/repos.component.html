@@ -1,0 +1,7 @@
+<div class="card w-100 mb-5">
+    <ul class="list-group list-group-flush">
+        @for(repo of gitHubRepo; track repo) {
+            <li class="list-group-item">{{repo?.name}}</li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,24 @@
+<div class="card user-card">
+  <img
+    class="card-img-top"
+    [src]="gitHubUser?.avatar_url"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ gitHubUser?.name }}</h5>
+    <p
+      class="card-text"
+      [innerHTML]="gitHubUser?.bio ? 'Bio: ' + gitHubUser?.bio : '--'"
+    ></p>
+    <p class="card-text">
+      Company: {{ gitHubUser?.company ? gitHubUser?.company : "--" }}
+    </p>
+    <p class="card-text">
+      Website: {{ gitHubUser?.blog ? gitHubUser?.blog : "--" }}
+    </p>
+    <p class="card-text">
+      Updated at:
+      {{ moment(gitHubUser?.updated_at).format("MMMM Do YYYY, h:mm a") }}
+    </p>
+  </div>
+</div>
